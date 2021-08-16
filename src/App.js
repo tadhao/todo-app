@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList';
+import 'bootstrap/dist/css/bootstrap.css';
+import { useState } from "react";
+import TodoForm from './components/TodoForm';
 
 function App() {
+  const [listData, setListData] = useState([
+    {text: "First List"}
+  ]); 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="app">
+      <div className="container">
+        <h1 className="text-center">Todo App</h1>
+        <TodoForm />
+          { listData.map((list) => (
+            <TodoList list={list} />
+          ))
+        }
+      </div>
     </div>
+    </>
   );
 }
 
