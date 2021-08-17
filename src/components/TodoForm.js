@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 const TodoForm = (props) => {
 	const [todoItem, setTodoItem] = useState("");
+
 	const submitHandler = (event) => {
 		event.preventDefault();
 		if(!todoItem) return;
